@@ -32,7 +32,7 @@ def check_url(id, url, keyword, method='GET'):
 
 def status_2_db(id, status):
     '''把结果写入db'''
-    conn = MySQLdb.connect(host=db_hostname, user=db_user, passwd='test', db='url_mon',charset='utf8')
+    conn = MySQLdb.connect(host=db_hostname, user=db_user, passwd=db_pass, db='url_mon',charset='utf8')
     cur = conn.cursor()
     sql_get_id_status = "select status_code from status_code where ID = %d;" %(id)
     cur.execute(sql_get_id_status)
