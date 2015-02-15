@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 # -*- encoding:utf-8 -*-
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 __author__ = 'kairong'
 import MySQLdb
 import ConfigParser

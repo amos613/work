@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- encoding:utf-8 -*-
 __author__ = 'kairong'
+#解决crontab中无法执行的问题
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 
 import ConfigParser
 import MySQLdb
