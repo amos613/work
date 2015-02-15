@@ -31,7 +31,7 @@ CREATE TABLE `montior_url` (
   `post_data` varchar(1024) DEFAULT NULL COMMENT '如果method为post时，需要提供该参数',
   `fail_time` int(11) DEFAULT NULL COMMENT '最大的失败次数',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='监控信息基础表\n';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='监控信息基础表\n';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `montior_url` (
 
 LOCK TABLES `montior_url` WRITE;
 /*!40000 ALTER TABLE `montior_url` DISABLE KEYS */;
+INSERT INTO `montior_url` VALUES (1,'app.mi.com','/detail/85089','GET','合肥',NULL,3),(2,'app.mi.com','/detail/1122','GET','微信',NULL,3),(3,'zhuti.xiaomi.com','/detail/0cc124fb-ab9d-4a32-b8ec-d9eee54eab2c','GET','当前评分',NULL,3);
 /*!40000 ALTER TABLE `montior_url` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -54,7 +55,7 @@ CREATE TABLE `status_code` (
   `ID` int(11) NOT NULL,
   `status_code` int(11) DEFAULT '0' COMMENT '0为正常，错误时加1，计算方法 last_status * cur_status + cur_status',
   `rep_point` varchar(45) NOT NULL COMMENT '上报节点，建议使用IP',
-  `rep_time` datetime DEFAULT NULL COMMENT '上报时间\n',
+  `rep_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '上报时间\n',
   `last_fail` datetime DEFAULT NULL COMMENT '上次失败时间'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -65,6 +66,7 @@ CREATE TABLE `status_code` (
 
 LOCK TABLES `status_code` WRITE;
 /*!40000 ALTER TABLE `status_code` DISABLE KEYS */;
+INSERT INTO `status_code` VALUES (1,0,'192.168.31.105','2015-02-14 15:32:41',NULL),(2,0,'192.168.31.105','2015-02-14 15:32:41',NULL),(3,0,'192.168.31.105','2015-02-14 15:32:41',NULL);
 /*!40000 ALTER TABLE `status_code` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -77,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-02-13 15:01:37
+-- Dump completed on 2015-02-15  8:03:22
