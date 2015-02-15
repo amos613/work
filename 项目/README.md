@@ -3,4 +3,4 @@
 
 
 
-This is [GIT PATH](git@github.com:sageskr/domain_mon.git "新的GIT项目地址")
+This is GIT path: git@github.com:sageskr/domain_mon.git "新的GIT项目地址" .
